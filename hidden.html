@@ -9,7 +9,7 @@
 
     <h2>Hidden things by Jeevan Bodigam</h2>
 
-    <form>
+    <!-- <form>
         <label for="form1_age">What is your age </label>
         <input type="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
 
@@ -17,7 +17,7 @@
         <input type="text" id="form1_nick" name="form1_nick" autofocus> <br>
 
         <input type="button" onclick="resolveForm()" value="Get values from form">
-    </form>
+    </form> -->
 
     <form>
         <label for="form1_secret">Enter the secret word </label>
@@ -32,39 +32,46 @@
 
 
     <p id="result">This text will be replaced </p>
+    <div>
+        <img src="images/iris.jpg" id="myImage" alt="Image of Iris Plant" width="200" height="200"
+            onclick="rotateImage()">
+    </div>
 
     <script>
-
-        function resolveForm() {
-            console.log("Getting form values")
-            age = document.getElementById("form1_age").value
-            nick = document.getElementById("form1_nick").value
-            confirmed = confirm("Are these the values? " + age + " and " + nick)
-
-            out = document.getElementById("result")
-            if (confirmed) {
-                out.innerHTML = "Values were confirmed"
-            } else {
-                out.innerHTML = "Values were not confirmed"
-            }
-        }
         correct = 0
         wrong = 0
         function processGuess() {
-            let secret=document.getElementById("form1_secret").value;
-            let guess=document.getElementById("form1_guess").value;
-            if(secret===guess){
+            let secret = document.getElementById("form1_secret").value;
+            let guess = document.getElementById("form1_guess").value;
+            if (secret === guess) {
                 correct++
-                document.getElementById("result").innerHTML="The Count of Correct is :"+ correct
+                document.getElementById("result").innerHTML = "The Count of Correct is :" + correct
                 window.alert("Congratulations")
-            }else{
+            } else {
                 wrong++
-                document.getElementById("result").innerHTML="The Count of Wrong is :"+ wrong
+                document.getElementById("result").innerHTML = "The Count of Wrong is :" + wrong
                 window.alert("Sorry")
             }
+        }
+    </script>
+    <script>
+        var currentImage = 0;
+        function rotateImage() {
+            switch (currentImage) {
+                case 0:
+                    document.getElementById("myImage").src = "images/iris.jpg";
+                    currentImage = 1;
+                    break;
+                case 1:
+                    document.getElementById("myImage").src = "images/opuntia.jpg";
+                    currentImage = 2;
+                    break;
+                case 2:
+                    document.getElementById("myImage").src = "images/goldenray.jpg";
+                    currentImage = 0;
+                    break;
 
-        
-
+            }
         }
     </script>
 
