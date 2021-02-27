@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Arithmetic</title>
+</head>
+
+<body>
+
+    <h1>Jeevan Bodigam Computes</h1>
+
+    <form>
+        <label for="first_value">Enter a number</label>
+        <input type="number" id="first_value" name="first_value" value="10"> <br>
+
+        <label for="second_value">Enter a number </label>
+        <input type="number" id="second_value" name="second_value" value="2"> <br>
+
+        <input type="button" onclick="permutations()" value="Compute">
+    </form>
+
+
+    <p id="result">This text will be replaced </p>
+
+    <script>
+
+        function permutations() {
+            let first = document.getElementById("first_value").value;
+            let second = document.getElementById("second_value").value;
+            let product = 1;
+                for (let i = first; i >= first - second + 1; i--) {
+                    product *= i;  
+                }
+                document.getElementById("result").innerHTML = `${first} permute ${second} is ${product}`;    
+        }
+    </script>
+
+</body>
+
+</html>
