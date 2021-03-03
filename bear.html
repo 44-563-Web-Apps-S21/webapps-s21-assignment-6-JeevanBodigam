@@ -46,10 +46,7 @@
             val = document.getElementById("form1_value").value
             // confirmed = confirm("Are these the values? " + age + " and " + nick)
             my_bear[color] = val;
-            document.getElementById('result').innerHTML = "hat:"
-                + my_bear.hat + ",   scarf:" + my_bear["scarf"]
-                + ",  shirt:" + my_bear.shirt
-                + ",    " + color + ":" + my_bear[color]
+            document.getElementById('result').innerHTML = JSON.stringify(my_bear);
 
         }
         function startbear() {
@@ -61,11 +58,7 @@
             my_bear.hat = hatChecked
             my_bear.scarf = scarfChecked
             my_bear.shirt = shirtChecked
-            document.getElementById('bearResult').innerHTML = "hat:"
-                + my_bear.hat + ",   scarf:" + my_bear["scarf"]
-                + ",  shirt:" + my_bear.shirt
-
-
+            document.getElementById('bearResult').innerHTML =JSON.stringify(my_bear);
         }
     </script>
 
