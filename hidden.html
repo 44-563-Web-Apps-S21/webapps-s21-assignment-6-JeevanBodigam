@@ -3,37 +3,68 @@
 
 <head>
     <title>Hidden File</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .hiddenForm{
+            margin: auto;
+            width: 300px;
+            /* text-align: center; */
+        }
+        .formResult{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-evenly;
+            
+        }
+        #result{
+            font-size: 20px;
+            font-weight: 600;
+
+        }
+        .imgClass{
+           /* justify-content: center; */
+           width: 300px;
+           margin: auto;
+        }
+        .imgClass img{
+            position: relative;
+        }
+    </style>
 </head>
 
 <body>
 
-    <h2>Hidden things by Jeevan Bodigam</h2>
+    <h2 class="bg-default text-center p-2">Hidden things by Jeevan Bodigam</h2>
 
-    <!-- <form>
-        <label for="form1_age">What is your age </label>
-        <input type="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
-
-        <label for="form1_nick">What is your nickname </label>
-        <input type="text" id="form1_nick" name="form1_nick" autofocus> <br>
-
-        <input type="button" onclick="resolveForm()" value="Get values from form">
-    </form> -->
-
-    <form>
-        <label for="form1_secret">Enter the secret word </label>
-        <input type="password" id="form1_secret" name="form1_secret" value="Secret"> <br>
-
-        <label for="form1_guess">Enter a guess </label>
-        <input type="text" id="form1_guess" name="form1_nick" autofocus> <br>
-
-        <input type="button" value="Check the guess" onclick="processGuess()">
-
-    </form>
-
-
-    <p id="result">This text will be replaced </p>
-    <div>
-        <img src="images/iris.jpg" id="myImage" alt="Image of Iris Plant" width="200" height="200"
+    <div class="formResult">
+        <div>
+            <form class="hiddenForm">
+                <div class="form-group">
+                 <label for="form1_secret">Enter the secret word </label>
+                 <input type="password" id="form1_secret" name="form1_secret" value="Secret" class="form-control">
+                </div>
+         
+                 <div class="form-group">
+                     <label for="form1_guess">Enter a guess </label>
+                 <input type="text" id="form1_guess" name="form1_nick" autofocus class="form-control">
+                 </div>
+         
+                 <input type="button" value="Check the guess"  class="btn btn-outline-success" onclick="processGuess()">
+         
+             </form>
+        </div>
+    
+        <div>
+            <p id="result">This text will be replaced </p>
+        </div>
+    </div>
+    <div class="imgClass img-responsive">
+        <img src="images/iris.jpg" id="myImage" alt="Image of Iris Plant"  class="img-fluid img-thumbnail"
             onclick="rotateImage()">
     </div>
 
