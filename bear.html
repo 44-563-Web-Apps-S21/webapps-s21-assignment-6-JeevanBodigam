@@ -132,10 +132,13 @@
             let objectString = "{";
             console.log(checkBoxGroup);
             for (let i = 0; i < checkBoxGroup.length; i++) {
-                objectString += `${checkBoxGroup[i].value}:${checkBoxGroup[i].checked} ,`;
+               
 
                 if (i == checkBoxGroup.length - 1) {
                     objectString += `${checkBoxGroup[i].value}:${checkBoxGroup[i].checked}`;
+                }
+                else{
+                    objectString += `${checkBoxGroup[i].value}:${checkBoxGroup[i].checked} ,`;
                 }
             }
             // document.getElementById('bearResult').innerHTML = JSON.stringify(my_bear);
