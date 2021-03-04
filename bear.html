@@ -7,37 +7,106 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .startbear1 {
+            border: 2px solid lightcoral;
+            background-color: lightgrey;
+            color: black;
+        }
+
+        .updateBearForm {
+            width: 350px;
+            padding: 5px;
+        }
+
+        #bearResult {
+            font-weight: bold;
+        }
+
+        #result {
+            font-weight: bold;
+        }
+
+        .bearPage {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            padding: 3px;
+        }
+
+        .or {
+            /* text-align: center;
+        justify-content: center;
+        align-self:center;
+        font-weight: 600; */
+            /* width: 1px; */
+            height: auto;
+            color: brown;
+            border: 2px solid brown;
+        }
+
+        @media only screen and (max-width: 578px) {
+            .or {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>Jeevan Bodigam builds a bear</h1>
-    <form>
-        <input type="checkbox" id="rg1_hat" name="bear" value="hat">
-        <label for="rg1_hat">Hat</label></br>
+    <h1 class="text-center m-auto bg-warning">Jeevan Bodigam builds a bear</h1>
+    <div class="bearPage">
+        <div>
+            <div>
+                <form class="p-4">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="rg1_hat" name="bear" value="hat">
+                        <label for="rg1_hat">Hat</label>
+                    </div>
 
-        <input type="checkbox" id="rg1_scarf" name="bear" value="scarf">
-        <label for="rg1_scarf">Scarf</label></br>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="rg1_scarf" name="bear" value="scarf">
+                        <label for="rg1_scarf">Scarf</label>
+                    </div>
 
-        <input type="checkbox" id="rg1_shirt" name="bear" value="shirt">
-        <label for="rg1_shirt">Shirt</label></br>
-        <input type="button" onclick="startbear()" value="Start a bear">
-    </form>
-    <br>
-    <p id="bearResult">This text will be replaced </p>
-    <form>
-        <label for="form1_color">Enter a property</label>
-        <input type="text" id="form1_color" name="form1_color" value="color"> <br>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="rg1_shirt" name="bear" value="shirt">
+                        <label for="rg1_shirt">Shirt</label>
+                    </div></br>
+                    <div>
+                        <input type="button" class="btn btn-secondary startbear1" onclick="startbear()"
+                            value="Start a bear">
+                    </div>
+                </form>
+            </div>
+            <div>
+                <p id="bearResult">Bear objects shows here</p>
+            </div>
+        </div>
+        <div class="or"></div>
+        <div>
+            <div>
+                <form class="updateBearForm">
+                    <div class="form-group">
+                        <label for="form1_color">Enter a property</label>
+                        <input type="text" id="form1_color" name="form1_color" value="color" class="form-control">
+                    </div>
 
-        <label for="form1_value">Enter a value </label>
-        <input type="text" id="form1_value" name="form1_value"> <br>
+                    <div class="form-group">
+                        <label for="form1_value">Enter a value </label>
+                        <input type="text" id="form1_value" name="form1_value" class="form-control">
+                    </div>
 
-        <input type="button" onclick="updatebear()" value="Update the bear">
-    </form>
-
-
-    <p id="result">This text will be replaced </p>
-
+                    <input type="button" class="btn btn-info" onclick="updatebear()" value="Update the bear">
+                </form>
+            </div>
+            <div>
+                <p id="result">Update bear Object will show here </p>
+            </div>
+        </div>
+    </div>
     <script>
         var my_bear = {};
         function updatebear() {
@@ -58,7 +127,19 @@
             my_bear.hat = hatChecked
             my_bear.scarf = scarfChecked
             my_bear.shirt = shirtChecked
-            document.getElementById('bearResult').innerHTML =JSON.stringify(my_bear);
+
+            let checkBoxGroup = document.getElementsByName("bear");
+            let objectString = "{";
+            console.log(checkBoxGroup);
+            for (let i = 0; i < checkBoxGroup.length; i++) {
+                objectString += `${checkBoxGroup[i].value}:${checkBoxGroup[i].checked} ,`;
+
+                if (i == checkBoxGroup.length - 1) {
+                    objectString += `${checkBoxGroup[i].value}:${checkBoxGroup[i].checked}`;
+                }
+            }
+            // document.getElementById('bearResult').innerHTML = JSON.stringify(my_bear);
+            document.getElementById('bearResult').innerHTML = objectString + "}";
         }
     </script>
 
